@@ -75,15 +75,9 @@
                                 Belum punya akun?
                             </small>
 
-                            <div class="mt-3">
-
-                                <a {{-- href="{{ route('register') }}" --}} class="btn btn-secondary w-100">
-
-                                    Daftar Akun
-
-                                </a>
-
-                            </div>
+                            <a href="{{ route('register') }}" class="text-secondary-custom">
+                                Daftar Akun
+                            </a>
 
                         </div>
 

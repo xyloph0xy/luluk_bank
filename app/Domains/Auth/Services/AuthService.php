@@ -35,4 +35,24 @@ class AuthService
 
         return $user;
     }
+
+    public function register(
+        string $name,
+        string $nickname,
+        string $phone,
+        string $password
+    ): User {
+        $user = $this->repository->findByPhone($phone);
+
+        if ($user) {
+            throw new AppException(
+                message: 'Nomor HP sudah terdaftar.',
+                errorCode: 'ALREADY_EXIST',
+                field: 'phone'
+            );
+        } else {
+            $user = $this->repository->registerUser($name, $nickname, $phone, $password);
+            return $user;
+        }
+    }
 }
