@@ -44,6 +44,32 @@ body {
     box-shadow: var(--shadow);
 }
 
+/* Clickable Card */
+.card-clickable {
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.card-clickable:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .75rem 1.5rem rgba(13, 110, 253, .15);
+}
+
+.card-clickable:active {
+    transform: scale(.98);
+}
+
+.card-clickable h5,
+.card-clickable p,
+.card-clickable i {
+    transition: color .25s ease;
+}
+
+.card-clickable:hover h5,
+.card-clickable:hover i {
+    color: var(--bs-primary);
+}
+
 .title-primary {
     color: var(--primary);
     font-weight: 700;
