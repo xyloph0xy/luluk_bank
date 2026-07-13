@@ -18,4 +18,16 @@ abstract class Validator
     {
         return [];
     }
+
+    /**
+     * Get Validator Configuration
+     */
+    public static function make(): array
+    {
+        return [
+            'rules'      => static::rules(),
+            'messages'   => static::messages(),
+            'attributes' => static::attributes(),
+        ];
+    }
 }
