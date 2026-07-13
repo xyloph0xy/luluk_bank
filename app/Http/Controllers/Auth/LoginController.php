@@ -9,7 +9,7 @@ class LoginController extends Controller
     public function redirectIfAuthenticated()
     {
         if (auth()->check()) {
-            return redirect()->intended('/admin/dashboard');
+            return redirect()->intended('/dashboard');
         } else {
             return redirect()->intended('login');
         }
