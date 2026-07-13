@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Validators\Auth;
+namespace App\Domains\Auth\Validators;
 
-use App\Validators\Validator;
+use App\Baseapp\Validator;
 
 class LoginValidator extends Validator
 {
@@ -15,13 +15,11 @@ class LoginValidator extends Validator
             'phone' => [
                 'required',
                 'digits_between:10,13',
-                'regex:/^(08|\+628)[0-9]+$/',
+                'regex:/^(08)[0-9]+$/',
             ],
 
             'password' => [
-                'required',
-                'min:8',
-                'max:100',
+                'required'
             ],
         ];
     }
@@ -34,11 +32,9 @@ class LoginValidator extends Validator
         return [
             'phone.required' => 'Nomor HP wajib diisi.',
             'phone.digits_between' => 'Nomor HP harus terdiri dari 10 sampai 13 digit.',
-            'phone.regex' => 'Format nomor HP tidak valid.',
+            'phone.regex' => 'Format nomor HP tidak valid, gunakan format 08xxx.',
 
-            'password.required' => 'Password wajib diisi.',
-            'password.min' => 'Password minimal 8 karakter.',
-            'password.max' => 'Password maksimal 100 karakter.',
+            'password.required' => 'Password wajib diisi.'
         ];
     }
 

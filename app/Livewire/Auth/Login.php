@@ -2,8 +2,13 @@
 
 namespace App\Livewire\Auth;
 
+use App\Baseapp\AppException;
+use App\Domains\Auth\Services\AuthService;
+use App\Domains\Auth\Validators\LoginValidator;
 use Livewire\Component;
-use App\Validators\Auth\LoginValidator;
+
+use Illuminate\Support\Facades\Auth;
+use Throwable;
 
 class Login extends Component
 {
@@ -26,11 +31,36 @@ class Login extends Component
         return LoginValidator::attributes();
     }
 
-    public function login()
+    public function login(AuthService $service)
     {
-        $validated = $this->validate();
+        $this->resetErrorBag();
+        $this->validate();
+        
+        try {
 
-        dd($validated);
+            $user = $service->attempt(
+                $this->phone,
+                $this->password
+            );
+
+            Auth::login($user);
+
+
+            return redirect()->route('dashboard');
+        } catch (AppException $e) {
+
+            $field = $e->field ?: 'general';
+
+            $this->addError($field, $e->getMessage());
+        } catch (\Throwable $e) {
+
+            report($e);
+
+            $this->addError(
+                'general',
+                'Ada kesalahan di server. Silakan coba lagi nanti.'
+            );
+        }
     }
 
     public function render()
