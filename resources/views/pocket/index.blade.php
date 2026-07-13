@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('main')
-@livewire('dashboard')
+@livewire('pocket')
 @endsection

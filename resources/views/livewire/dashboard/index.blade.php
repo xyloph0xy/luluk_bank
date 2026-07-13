@@ -9,7 +9,7 @@
 
                 <div>
                     <h4 class="title-primary mb-1">
-                        Hai {{ auth()->user()->nickname }}! 
+                        Hai {{ $user->nickname }}!
                     </h4>
 
                     <small class="text-secondary-custom">
@@ -17,11 +17,41 @@
                     </small>
                 </div>
 
-                <div>
+                <div class="dropdown">
 
-                    <button class="btn btn-outline-primary rounded-circle">
-                        <i class="bi bi-person"></i>
+                    <button class="btn btn-outline-primary rounded-circle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="width:52px;height:52px;">
+
+                        <i class="bi bi-person fs-5"></i>
+
                     </button>
+
+                    <ul class="dropdown-menu dropdown-menu-end shadow">
+
+                        <li>
+                            <h6 class="dropdown-header">
+                                {{ auth()->user()->nickname }}
+                            </h6>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <button type="submit" class="dropdown-item text-danger">
+                                    <i class="bi bi-box-arrow-right me-2"></i>
+                                    Logout
+                                </button>
+                            </form>
+
+                        </li>
+
+                    </ul>
 
                 </div>
 
@@ -49,7 +79,7 @@
                             </strong>
 
                             <span>
-                                {{ auth()->user()->bankAccount->account_number }}
+                                {{ $user->bankAcc->account_number }}
                             </span>
 
                         </div>
@@ -62,16 +92,16 @@
 
                                 <h3 class="fw-bold mb-0">
 
-                                    Rp
-                                    {{ number_format(auth()->user()->bankAccount->balance, 2, ',', '.') }}
+                                    {{ $showBalance ? 'Rp ' . number_format($user->balance, 2, ',', '.') : 'Rp ••••••••' }}
 
                                 </h3>
 
                             </div>
 
-                            <button class="btn btn-light rounded-circle">
+                            <button type="button" class="btn btn-light rounded-circle"
+                                wire:click="$toggle('showBalance')">
 
-                                <i class="bi bi-eye-slash"></i>
+                                <i class="bi {{ $showBalance ? 'bi-eye-slash' : 'bi-eye' }}"></i>
 
                             </button>
 
@@ -138,27 +168,28 @@
 
             <div class="col-md-4">
 
-                <div class="card card-bank h-100">
+                {{-- <a href="{{ route('pocket.index') }}" class="text-decoration-none"> --}}
+                <a class="text-decoration-none">
 
-                    <div class="card-body text-center">
+                    <div class="card card-bank h-100 card-clickable">
 
-                        <i class="bi bi-piggy-bank fs-1 text-primary mb-3"></i>
+                        <div class="card-body text-center">
 
-                        <h5>
+                            <i class="bi bi-piggy-bank fs-1 text-primary mb-3"></i>
 
-                            Ayo buat Pocket!
+                            <h5 class="text-dark">
+                                Ayo buat Pocket!
+                            </h5>
 
-                        </h5>
+                            <p class="text-secondary-custom">
+                                Pisahkan tabungan sesuai tujuanmu.
+                            </p>
 
-                        <p class="text-secondary-custom">
-
-                            Pisahkan tabungan sesuai tujuanmu.
-
-                        </p>
+                        </div>
 
                     </div>
 
-                </div>
+                </a>
 
             </div>
 
