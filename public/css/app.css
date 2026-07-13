@@ -1,41 +1,152 @@
 :root {
-    /* Brand */
-    --primary: #0D6EFD;
-    --primary-dark: #0A58CA;
-    --primary-light: #EAF3FF;
+    /* ===============================
+       Brand Colors
+    =============================== */
+    --primary: #0d6efd;
+    --primary-dark: #0a58ca;
+    --primary-light: #eaf3ff;
 
-    --secondary: #FFC107;
-    --secondary-dark: #E0A800;
-    --secondary-light: #FFF8E1;
+    --secondary: #ffc107;
+    --secondary-dark: #e0a800;
+    --secondary-light: #fff8e1;
 
-    /* Neutral */
-    --white: #FFFFFF;
-    --background: #F5F7FB;
-    --surface: #FFFFFF;
+    /* ===============================
+       Neutral
+    =============================== */
+    --white: #ffffff;
+    --background: #f5f7fb;
+    --surface: #ffffff;
 
-    /* Text */
-    --text-primary: #1E293B;
-    --text-secondary: #64748B;
+    /* ===============================
+       Text
+    =============================== */
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
 
-    /* Border */
-    --border: #E2E8F0;
+    /* ===============================
+       Border
+    =============================== */
+    --border: #e2e8f0;
 
-    /* Radius */
+    /* ===============================
+       Radius
+    =============================== */
     --radius: 16px;
 
-    /* Shadow */
-    --shadow: 0 8px 24px rgba(0,0,0,.08);
+    /* ===============================
+       Shadow
+    =============================== */
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 
-    /* Bootstrap Override */
+    /* ===============================
+       Bootstrap Override
+    =============================== */
     --bs-primary: var(--primary);
     --bs-secondary: var(--secondary);
 }
+
+/* ======================================
+   Base
+====================================== */
 
 body {
     background: var(--background);
     color: var(--text-primary);
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* ========================================
+   Utilities
+======================================== */
+
+.fw-extrabold {
+    font-weight: 800;
+}
+
+.transition-all {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   Hover Effects
+======================================== */
+
+.hover-up:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .05) !important;
+}
+
+.hover-card:hover {
+    cursor: pointer;
+    transform: translateY(-4px);
+    box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .08) !important;
+}
+
+.hover-card:hover .icon-box {
+    transform: scale(1.08);
+}
+
+/* ======================================
+   Hover Effects
+====================================== */
+
+.hover-up:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .08) !important;
+}
+
+.hover-card:hover {
+    cursor: pointer;
+    transform: translateY(-4px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .12) !important;
+}
+
+.hover-dashed-card {
+    border-radius: var(--radius);
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23D1D5DBffffff' stroke-width='2' stroke-dasharray='6%2c6' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
+.hover-dashed-card:hover {
+    background-color: var(--bs-light) !important;
+    border-color: var(--bs-primary) !important;
+    transform: translateY(-4px);
+}
+
+.hover-dashed-card:hover .icon-box {
+    background-color: var(--bs-primary) !important;
+    color: var(--white) !important;
+    transform: scale(1.05);
+}
+
+/* ======================================
+   Components
+====================================== */
+
+/* Navbar */
+
+.navbar-card {
+    border-radius: 30px;
+}
+
+/* Profile */
+
+.profile-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 72px;
+    height: 72px;
+
+    border-width: 2px;
+    border-radius: 50%;
+}
+
+.profile-btn i {
+    font-size: 1.8rem;
+}
+
+/* Card */
 
 .card-bank {
     background: var(--surface);
@@ -44,7 +155,6 @@ body {
     box-shadow: var(--shadow);
 }
 
-/* Clickable Card */
 .card-clickable {
     cursor: pointer;
     transition: all .25s ease;
@@ -70,32 +180,21 @@ body {
     color: var(--bs-primary);
 }
 
-.title-primary {
-    color: var(--primary);
-    font-weight: 700;
-}
-
-.text-secondary-custom {
-    color: var(--text-secondary);
-}
+/* Authentication */
 
 .auth-input {
     height: 48px;
-    border-radius: 12px;
     border: 1px solid var(--border);
+    border-radius: 12px;
 }
 
 .auth-input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 .2rem rgba(13,110,253,.15);
+    box-shadow: 0 0 0 .2rem rgba(13, 110, 253, .15);
 }
 
 .auth-btn {
     height: 48px;
     border-radius: 12px;
     font-weight: 600;
-}
-
-.bg-primary-soft {
-    background: var(--background);
 }
