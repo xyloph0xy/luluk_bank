@@ -56,7 +56,7 @@
 
                             <div class="col">
 
-                                <button class="btn btn-warning w-100 rounded-pill">
+                                <button class="btn btn-warning w-100 rounded-pill hover-button transition-all">
 
                                     <i class="bi bi-wallet2"></i>
 
@@ -70,7 +70,7 @@
 
                             <div class="col">
 
-                                <button class="btn btn-warning w-100 rounded-pill">
+                                <button class="btn btn-warning w-100 rounded-pill hover-button transition-all">
 
                                     <i class="bi bi-arrow-left-right"></i>
 
@@ -84,7 +84,7 @@
 
                             <div class="col">
 
-                                <button class="btn btn-warning w-100 rounded-pill">
+                                <button class="btn btn-warning w-100 rounded-pill hover-button transition-all">
 
                                     <i class="bi bi-qr-code"></i>
 
@@ -193,3 +193,18 @@
     </div>
 
 </div>
+
+<style>
+    .transition-all {
+        transition: all 0.3s ease;
+    }
+
+    .hover-button:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .hover-button:active {
+        transform: translateY(-1px);
+    }
+</style>
