@@ -23,4 +23,24 @@ class PocketService
         return $this->getAllPocket($userId)->sum('balance');;
     }
 
+    public function getMainBalance($userId)
+    {
+        return $this->repository->getMainBalance($userId);
+    }
+
+    public function addPocket(
+        $userId,
+        $name,
+        $balance_pocket,
+        $goal_amount,
+        $achivement_date_goal
+    ): ?Pockets {
+        return $this->repository->addPocket(
+            $userId,
+            $name,
+            $balance_pocket,
+            $goal_amount,
+            $achivement_date_goal
+        );
+    }
 }

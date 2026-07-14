@@ -9,7 +9,7 @@ class Pockets extends Model
 {
     protected $fillable = [
         'user_id',
-        'account_id',
+        'account_number',
         'name',
         'balance',
         'goal_amount',

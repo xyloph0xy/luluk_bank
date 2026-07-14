@@ -11,4 +11,9 @@ class PocketController extends Controller
     {
         return view('pocket.index');
     }
+
+    public function create()
+    {
+        return view('pocket.create');
+    }
 }

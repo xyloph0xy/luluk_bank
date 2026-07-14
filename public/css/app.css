@@ -198,3 +198,14 @@ body {
     border-radius: 12px;
     font-weight: 600;
 }
+
+.form-standard:focus {
+    background-color: #fff !important;
+    border-color: #0d6efd !important;
+    box-shadow: none !important;
+}
+
+.input-group:focus-within .input-group-text {
+    background-color: #fff !important;
+    border-color: #0d6efd !important;
+}

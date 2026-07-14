@@ -17,8 +17,13 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class, 'user_id')
                 ->constrained((new User())->getTable());
-            $table->foreignIdFor(BankAccounts::class, 'account_id')
-                ->constrained((new BankAccounts())->getTable());
+            $table->string('account_number', 20);
+
+            $table->foreign('account_number')
+                ->references('account_number')
+                ->on('bank_accounts')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->string('name')->unique();
             $table->double('balance')->default(0);
             $table->double('goal_amount')->nullable();

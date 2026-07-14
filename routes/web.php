@@ -17,5 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
     Route::get('pocket', [PocketController::class, 'index'])->name('pocket.index');
+    Route::get('pocket/create', [PocketController::class, 'create'])->name('pocket-create');
 });
