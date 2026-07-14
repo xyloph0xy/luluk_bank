@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Pocket\PocketController;
 use App\Http\Controllers\Transaction\TopUpBankController;
+use App\Http\Controllers\Transaction\TransferController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LoginController::class, 'redirectIfAuthenticated']);
@@ -24,7 +25,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('top-up/list-bank', [TopUpBankController::class, 'listBank'])
         ->name('list-bank');
- 
     Route::get('top-up/status/{vaNumber}', [TopUpBankController::class, 'checkTopupPayment'])
         ->name('status');
+
+    Route::get('/transfer', [TransferController::class, 'submitTransfer'])->name('transfer.store');
 });

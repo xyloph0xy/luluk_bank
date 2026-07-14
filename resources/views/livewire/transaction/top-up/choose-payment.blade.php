@@ -27,7 +27,6 @@
 
                     <form wire:submit.prevent="submitTopUp">
 
-                        {{-- STEP 1: PILIH BANK (Dropdown Custom) --}}
                         <div class="mb-4">
                             <label class="form-label fw-bold text-dark mb-2">Pilih Bank Pembayaran</label>
 

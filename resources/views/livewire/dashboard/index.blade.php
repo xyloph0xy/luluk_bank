@@ -70,7 +70,7 @@
 
                             <div class="col">
 
-                                <button class="btn btn-warning w-100 rounded-pill hover-button transition-all">
+                                <a href="{{ route('transfer.store') }}" class="btn btn-warning w-100 rounded-pill hover-button transition-all">
 
                                     <i class="bi bi-arrow-left-right"></i>
 
@@ -78,7 +78,7 @@
 
                                     Transfer
 
-                                </button>
+                                </a>
 
                             </div>
 
