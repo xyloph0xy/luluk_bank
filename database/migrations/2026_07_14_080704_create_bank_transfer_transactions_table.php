@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bank_transfer_transactions', function (Blueprint $table) {
-            $table->id(); 
+            $table->uuid()->primary(); 
 
             $table->foreignId('user_id')
                 ->constrained()
@@ -22,13 +22,13 @@ return new class extends Migration
             $table->string('reference_no')->unique();
 
     
-            $table->string('source_bank_code', 10);
-            $table->string('source_account_number', 30);
+            // $table->string('source_bank_code', 10);
+            // $table->string('source_account_number', 30);
 
             
-            $table->string('destination_bank_code', 10);
-            $table->string('destination_account_number', 30);
-            $table->string('destination_account_name');
+            // $table->string('destination_bank_code', 10);
+            // $table->string('destination_account_number', 30);
+            // $table->string('destination_account_name');
 
           
             $table->decimal('amount', 15, 2);
@@ -40,7 +40,7 @@ return new class extends Migration
 
          
             $table->string('transaction_id')->nullable()->unique();
-            $table->string('external_reference')->nullable();
+            // $table->string('external_reference')->nullable();
 
        
             $table->enum('status', [
