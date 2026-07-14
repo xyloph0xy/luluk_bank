@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Pocket\PocketController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LoginController::class, 'redirectIfAuthenticated']);
@@ -16,5 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('pocket', [DashboardController::class, 'index'])->name('dashboard');
+    
+    Route::get('pocket', [PocketController::class, 'index'])->name('pocket.index');
+    Route::get('pocket/create', [PocketController::class, 'create'])->name('pocket-create');
 });

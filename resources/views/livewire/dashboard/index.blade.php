@@ -168,8 +168,8 @@
 
             <div class="col-md-4">
 
-                {{-- <a href="{{ route('pocket.index') }}" class="text-decoration-none"> --}}
-                <a class="text-decoration-none">
+                <a href="{{ route('pocket.index') }}" class="text-decoration-none">
+
 
                     <div class="card card-bank h-100 card-clickable">
 
