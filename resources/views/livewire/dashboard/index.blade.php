@@ -2,63 +2,6 @@
 
     <div class="container">
 
-        {{-- Header --}}
-        <div class="card card-bank mb-4">
-
-            <div class="card-body d-flex justify-content-between align-items-center">
-
-                <div>
-                    <h4 class="title-primary mb-1">
-                        Hai {{ $user->nickname }}!
-                    </h4>
-
-                    <small class="text-secondary-custom">
-                        Udah siap menabung hari ini?
-                    </small>
-                </div>
-
-                <div class="dropdown">
-
-                    <button class="btn btn-outline-primary rounded-circle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" style="width:52px;height:52px;">
-
-                        <i class="bi bi-person fs-5"></i>
-
-                    </button>
-
-                    <ul class="dropdown-menu dropdown-menu-end shadow">
-
-                        <li>
-                            <h6 class="dropdown-header">
-                                {{ auth()->user()->nickname }}
-                            </h6>
-                        </li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <button type="submit" class="dropdown-item text-danger">
-                                    <i class="bi bi-box-arrow-right me-2"></i>
-                                    Logout
-                                </button>
-                            </form>
-
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
-
         {{-- Kartu Rekening --}}
         <div class="row justify-content-center mb-4">
 
