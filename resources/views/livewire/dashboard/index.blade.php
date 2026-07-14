@@ -35,7 +35,7 @@
 
                                 <h3 class="fw-bold mb-0">
 
-                                    {{ $showBalance ? 'Rp ' . number_format($user->balance, 2, ',', '.') : 'Rp ••••••••' }}
+                                    {{ $showBalance ? 'Rp ' . number_format($user->bankAcc->balance, 2, ',', '.') : 'Rp ••••••••' }}
 
                                 </h3>
 
@@ -56,7 +56,7 @@
 
                             <div class="col">
 
-                                <button class="btn btn-warning w-100 rounded-pill hover-button transition-all">
+                                <a href="{{ route('list-bank') }}" class="btn btn-warning w-100 rounded-pill hover-button transition-all">
 
                                     <i class="bi bi-wallet2"></i>
 
@@ -64,7 +64,7 @@
 
                                     Top Up
 
-                                </button>
+                                </a>
 
                             </div>
 
