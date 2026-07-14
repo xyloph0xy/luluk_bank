@@ -8,7 +8,7 @@ use App\Domains\Auth\Validators\LoginValidator;
 use Livewire\Component;
 
 use Illuminate\Support\Facades\Auth;
-use Throwable;
+
 
 class Login extends Component
 {
